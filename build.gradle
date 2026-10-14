@@ -1,0 +1,40 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version '1.15.5'
+    id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+base { archivesName = "carpet-rm-addition-${minecraft_version}" }
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://api.modrinth.com/maven' }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${loader_version}"
+    implementation "maven.modrinth:carpet:${carpet_version}"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+    withSourcesJar()
+}
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') { expand(version: project.version) }
+}
+
+loom {
+    mods {
+        'carpet-rm-addition' { sourceSet sourceSets.main }
+    }
+}
+jar { from('LICENSE') { rename { "${it}_carpet-rm-addition" } } }
+publishing {
+    publications { mavenJava(MavenPublication) { from components.java } }
+}

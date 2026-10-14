@@ -1,0 +1,13 @@
+{
+  "modifyPermissions": {
+    "flippinCactus": "2"
+  },
+  "groups": {
+    "survival": {
+      "rules": {
+        "flippinCactus": "true",
+        "stackableShulkerBoxes": "16"
+      }
+    }
+  }
+}

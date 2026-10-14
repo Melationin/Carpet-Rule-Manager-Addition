@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "carpet-rm-addition",
+  "version": "${version}",
+  "name": "Carpet Rule Manager Addition",
+  "description": "Independent Carpet rule permissions and named rule group presets.",
+  "authors": ["Zhddsj"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": { "main": ["com.carpet.rm.CarpetRuleManager"] },
+  "mixins": ["carpet-rm-addition.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.19.2",
+    "minecraft": "26.1.x",
+    "java": ">=25",
+    "carpet": "26.1" }
+}

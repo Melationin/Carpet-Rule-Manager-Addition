@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.carpet.rm.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "CommandNodeAccessor",
+    "SettingsManagerAccessor",
+    "SettingsManagerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
